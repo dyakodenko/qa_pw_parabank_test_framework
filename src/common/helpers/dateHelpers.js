@@ -3,11 +3,12 @@
  * @param {'MM-DD-YYYY' | 'DD-MM-YYYY'} format
  * @returns {string}
  */
-export function getTodayDateString(format = 'MM-DD-YYYY') {
-  const today = new Date();
-  const day = String(today.getDate()).padStart(2, '0');
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const year = today.getFullYear();
+export function getTodayDateString(format = 'MM-DD-YYYY', daysToShift = 0) {
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + daysToShift);
+  const day = String(targetDate.getDate()).padStart(2, '0');
+  const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+  const year = targetDate.getFullYear();
 
   if (format === 'DD-MM-YYYY') {
     return `${day}-${month}-${year}`;

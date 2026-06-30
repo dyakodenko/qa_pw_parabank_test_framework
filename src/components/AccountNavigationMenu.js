@@ -6,6 +6,7 @@ export class AccountNavigationMenu {
     this.userId = userId;
     this.accountFromSelect = this.page.locator('#fromAccountId');
     this.accountToSelect = this.page.locator('#toAccountId');
+    this.accountSelect = this.page.locator('#accountId');
     this.accountNavigationMenuLocator = this.page
       .locator('#leftPanel')
       .filter({ hasText: 'Account Services' });
@@ -112,6 +113,29 @@ export class AccountNavigationMenu {
       await this.accountNavigationMenuItem('Bill Pay').click();
     });
   }
+
+  //Find transactions page
+  async openFindTransactionsPage() {
+    await this.step('Open "Find Transactions" page', async () => {
+      await this.clickFindTransactions();
+      await this.assertFindTransactionsPageIsOpen();
+    });
+  }
+
+  async assertFindTransactionsPageIsOpen() {
+    await this.step(
+      `Assert that Find Transactions Page is opened`,
+      async () => {
+        await expect(
+          this.page.getByRole('heading', {
+            name: 'Find Transactions',
+            exact: true,
+          }),
+        ).toBeVisible();
+        await expect(this.accountSelect.locator('option')).not.toHaveCount(0);
+      },
+    );
+  }
   async clickFindTransactions() {
     await this.step('Click "Find Transactions" link', async () => {
       await this.accountNavigationMenuItem('Find Transactions').click();
@@ -145,11 +169,32 @@ export class AccountNavigationMenu {
       await this.accountNavigationMenuItem('Update Contact Info').click();
     });
   }
+
+  // Request loan page
+  async openRequestLoanPage() {
+    await this.step('Open "Request Loan" page', async () => {
+      await this.clickRequestLoan();
+      await this.assertRequestLoanPageIsOpen();
+    });
+  }
+
+  async assertRequestLoanPageIsOpen() {
+    await this.step(`Assert that Request Loan Page is opened`, async () => {
+      await expect(
+        this.page.getByRole('heading', {
+          name: 'Apply for a Loan',
+          exact: true,
+        }),
+      ).toBeVisible();
+    });
+  }
+
   async clickRequestLoan() {
     await this.step('Click "Request Loan" link', async () => {
       await this.accountNavigationMenuItem('Request Loan').click();
     });
   }
+
   async clickLogOut() {
     await this.step('Click "Log Out" link"', async () => {
       await this.accountNavigationMenuItem('Log Out').click();

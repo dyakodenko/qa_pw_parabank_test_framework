@@ -68,6 +68,14 @@ export class AccountActivityPage {
     );
   }
 
+  transtionTypeLocatorByOrder(rowNumber) {
+    const transactionRow = this.activityTableLocator
+      .getByRole('row')
+      .nth(rowNumber);
+
+    return transactionRow.getByRole('cell').nth(1);
+  }
+
   //Actions
 
   async selectTypeToFilter(type) {
@@ -92,6 +100,15 @@ export class AccountActivityPage {
       await this.goButton.click();
       await transactionResponsePromise;
     });
+  }
+
+  async clickTransactionLinkByOrder(transactionOrder) {
+    await this.step(
+      `Click on transaction link for ${transactionOrder} transaction`,
+      async () => {
+        await this.transtionTypeLocatorByOrder(transactionOrder).click();
+      },
+    );
   }
 
   //Assetions

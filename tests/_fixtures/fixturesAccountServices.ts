@@ -5,6 +5,9 @@ import { AccountsOverviewPage } from '../../src/ui/pages/AccountsOverviewPage';
 import { AccountActivityPage } from '../../src/ui/pages/AccountActivityPage';
 import { BillPayPage } from '../../src/ui/pages/BillPayPage';
 import { UpdateContactInfoPage } from '../../src/ui/pages/UpdateContactInfoPage';
+import { RequestLoanPage } from '../../src/ui/pages/RequestLoanPage';
+import { TransactionDetailsPage } from '../../src/ui/pages/TransactionDetailsPage';
+import { FindTransactionPage } from '../../src/ui/pages/FindTransactionPage';
 
 export const test = base.extend<{
   openNewAccountPage: OpenNewAccountPage;
@@ -13,6 +16,9 @@ export const test = base.extend<{
   accountActivityPage: AccountActivityPage;
   billPayPage: BillPayPage;
   updateContactInfoPage: UpdateContactInfoPage;
+  requestLoanPage: RequestLoanPage;
+  transactionDetailsPage: TransactionDetailsPage;
+  findTransactionPage: FindTransactionPage;
 }>({
   openNewAccountPage: async ({ page }, use) => {
     const openNewAccountPage = new OpenNewAccountPage(page);
@@ -43,5 +49,20 @@ export const test = base.extend<{
     const updateContactInfoPage = new UpdateContactInfoPage(page);
 
     await use(updateContactInfoPage);
+  },
+  requestLoanPage: async ({ page }, use) => {
+    const requestLoanPage = new RequestLoanPage(page);
+
+    await use(requestLoanPage);
+  },
+  transactionDetailsPage: async ({ page }, use) => {
+    const transactionDetailsPage = new TransactionDetailsPage(page);
+
+    await use(transactionDetailsPage);
+  },
+  findTransactionPage: async ({ page }, use) => {
+    const findTransactionPage = new FindTransactionPage(page);
+
+    await use(findTransactionPage);
   },
 });
