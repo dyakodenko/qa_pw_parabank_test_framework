@@ -7,5 +7,4 @@ test.beforeEach(async ({ page, account }) => {
 
 test('User is able to log out', async ({ page, accountNavigationMenu }) => {
   await accountNavigationMenu.clickLogOut();
-  await page.waitForTimeout(2000);
 });

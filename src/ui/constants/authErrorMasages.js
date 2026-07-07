@@ -8,3 +8,6 @@ export const EMPTY_SSN_MESSAGE = `Social Security Number is required.`;
 export const EMPTY_USERNAME_MESSAGE = `Username is required.`;
 export const EMPTY_PASSWORD_MESSAGE = `Password is required.`;
 export const EMPTY_CONFIRM_PASSWORD_MESSAGE = `Password confirmation is required.`;
+
+export const INCORRECT_CREDS_MESSAGE = `An internal error has occurred and has been logged.`;
+export const EMPTY_CREDS_MESSAGE = `Please enter a username and password.`;

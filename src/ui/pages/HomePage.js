@@ -1,4 +1,4 @@
-import { expect, testStep } from '../../common/helpers/pwHelpers';
+import { testStep } from '../../common/helpers/pwHelpers';
 
 export class HomePage {
   constructor(page, userId = 0) {
@@ -28,15 +28,33 @@ export class HomePage {
     });
   }
 
-  async assertSomething() {
-    await this.step(`Assert something`, async () => {
-      expect(true).toBe(true);
-    });
-  }
-
   async clickLogOut() {
     await this.step(`Click the Log Out button`, async () => {
       await this.page.getByRole('link', { name: 'Log Out' }).click();
+    });
+  }
+
+  async fillUsername(username) {
+    await this.step(`Fill the username field`, async () => {
+      await this.page.locator('input[name="username"]').fill(username);
+    });
+  }
+
+  async fillPassword(password) {
+    await this.step(`Fill the password field`, async () => {
+      await this.page.locator('input[name="password"]').fill(password);
+    });
+  }
+
+  async clickLoginButton() {
+    await this.step(`Click the Login button`, async () => {
+      await this.page.getByRole('button', { name: 'Log In' }).click();
+    });
+  }
+
+  async assertLoginError(message) {
+    await this.step(`Assert login error`, async () => {
+      await this.page.getByText(message).isVisible();
     });
   }
 }

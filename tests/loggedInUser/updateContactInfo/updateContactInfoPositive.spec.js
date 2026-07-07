@@ -12,7 +12,6 @@ test('User is able to update Contact Information', async ({
   page,
   account,
 }) => {
-  await page.pause();
   await accountNavigationMenu.openUpdateContactInfoPage();
   await updateContactInfoPage.assertFirstNameValue(account.firstname);
   const updateContactInfoData = generateNewAccountData();
@@ -25,7 +24,6 @@ test('User is able to update Contact Information', async ({
   await updateContactInfoPage.fillPhone(updateContactInfoData.phone);
   await updateContactInfoPage.clickUpdateProfileButton();
   await updateContactInfoPage.assertUpdateProfileSuccessMessageIsShown();
-  //await page.pause();
   await accountNavigationMenu.openUpdateContactInfoPage();
 
   await updateContactInfoPage.assertFirstNameValue(
