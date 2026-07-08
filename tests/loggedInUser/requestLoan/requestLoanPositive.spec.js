@@ -19,7 +19,9 @@ test('User is able to request a loan', async ({
   const defaultAccountId = await accountsOverviewPage.getDefaultAccountId();
   const defaultAccountBalance =
     await accountsOverviewPage.getAccountBalanceByAccountId(defaultAccountId);
-  await accountsOverviewPage.assertValueIsGraterThanZero(defaultAccountBalance);
+  await accountsOverviewPage.assertValueIsGreaterThanZero(
+    defaultAccountBalance,
+  );
   await accountNavigationMenu.openRequestLoanPage();
   await requestLoanPage.fillLoanAmount(loanAmmount.toString());
   await requestLoanPage.fillDownPayment(downPayment.toString());

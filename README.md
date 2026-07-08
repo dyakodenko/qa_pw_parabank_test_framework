@@ -35,7 +35,7 @@ npm playwright test
 
 ## How to generate report
 
-To generate report
+To generate Allure report
 ```bash
 allure serve allure-results
 ```

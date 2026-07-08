@@ -1,4 +1,4 @@
-import { testStep } from '../../common/helpers/pwHelpers';
+import { testStep, expect } from '../../common/helpers/pwHelpers';
 
 export class HomePage {
   constructor(page, userId = 0) {
@@ -54,7 +54,7 @@ export class HomePage {
 
   async assertLoginError(message) {
     await this.step(`Assert login error`, async () => {
-      await this.page.getByText(message).isVisible();
+      await expect(this.page.getByText(message)).toBeVisible();
     });
   }
 }

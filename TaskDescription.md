@@ -16,7 +16,7 @@
 6. Remember to not duplicate the code, use helper methods, actions and fixtures. - Done
 7. Organize fixtures for the certain functionality into separate files. - Done
 8. Think about parametrized tests you need to create, for example when checking the different numeric inputs. - Done
-9. Add the README.md "How to run the tests" & "How to generate report" sections.
+9. Add the README.md "How to run the tests" & "How to generate report" sections. - Done
 
 The functionality that should be automated:
 

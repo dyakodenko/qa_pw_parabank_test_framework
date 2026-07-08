@@ -20,8 +20,8 @@ test('Accounts overview shows default account and balances', async ({
   defaultAccountId = await accountsOverviewPage.getDefaultAccountId();
   accountBalance =
     await accountsOverviewPage.getAccountBalanceByAccountId(defaultAccountId);
-  await accountsOverviewPage.assertValueIsGraterThanZero(accountBalance);
+  await accountsOverviewPage.assertValueIsGreaterThanZero(accountBalance);
   avaliableAmount =
     await accountsOverviewPage.getAvaliableAmountByAccountId(defaultAccountId);
-  await accountsOverviewPage.assertValueIsGraterThanZero(avaliableAmount);
+  await accountsOverviewPage.assertValueIsGreaterThanZero(avaliableAmount);
 });

@@ -31,10 +31,7 @@ export class TransactionDetailsPage {
 
   async assertTransactionIdIsShown() {
     await this.step(`Assert transaction ID is shown`, async () => {
-      const transactionId = await this.transactionIdLocator.textContent();
-      expect(transactionId).not.toBeNull();
-      await expect(transactionId).not.toHaveText('');
-      expect(transactionId).not.toBeUndefined();
+      await expect(this.transactionIdLocator).not.toBeEmpty();
     });
   }
 

@@ -77,7 +77,7 @@ export class AccountsOverviewPage {
     );
   }
 
-  async assertValueIsGraterThanZero(actualBalance) {
+  async assertValueIsGreaterThanZero(actualBalance) {
     await this.step(`Assert value is greater than 0`, async () => {
       expect(actualBalance).toBeGreaterThan(0);
     });

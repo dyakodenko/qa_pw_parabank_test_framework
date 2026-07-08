@@ -68,7 +68,7 @@ export class AccountActivityPage {
     );
   }
 
-  transtionTypeLocatorByOrder(rowNumber) {
+  transactionTypeLocatorByOrder(rowNumber) {
     const transactionRow = this.activityTableLocator
       .getByRole('row')
       .nth(rowNumber);
@@ -106,7 +106,7 @@ export class AccountActivityPage {
     await this.step(
       `Click on transaction link for ${transactionOrder} transaction`,
       async () => {
-        await this.transtionTypeLocatorByOrder(transactionOrder).click();
+        await this.transactionTypeLocatorByOrder(transactionOrder).click();
       },
     );
   }
