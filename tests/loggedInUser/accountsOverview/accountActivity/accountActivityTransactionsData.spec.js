@@ -2,6 +2,7 @@ import { test } from '../../../_fixtures/fixtures';
 import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
 import { openAddtionalAccount } from '../../../../src/ui/actions/openAdditionalAccount';
 import { getTodayDateString } from '../../../../src/common/helpers/dateHelpers';
+import * as allure from 'allure-js-commons';
 
 let defaultAccount;
 let additionalAccount;
@@ -47,6 +48,7 @@ test('Account activity table shows proper transaction data', async ({
   accountNavigationMenu,
   accountActivityPage,
 }) => {
+  await allure.severity('normal');
   await accountNavigationMenu.openAccountsOverviewPage();
 
   await accountsOverviewPage.clickOnAccountLink(additionalAccount);

@@ -1,6 +1,7 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
 import { openAddtionalAccount } from '../../../src/ui/actions/openAdditionalAccount';
+import * as allure from 'allure-js-commons';
 
 const testParameters = [
   {
@@ -29,6 +30,7 @@ testParameters.forEach(({ accountType }) => {
       accountsOverviewPage,
       page,
     }) => {
+      await allure.severity('normal');
       await accountNavigationMenu.openAccountsOverviewPage();
       const initialBalance =
         await accountsOverviewPage.getAccountBalanceByAccountId(newAccountId);

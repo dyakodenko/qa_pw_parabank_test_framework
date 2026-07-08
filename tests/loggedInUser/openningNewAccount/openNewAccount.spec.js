@@ -1,5 +1,6 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
+import * as allure from 'allure-js-commons';
 
 const testParameters = [
   {
@@ -18,6 +19,7 @@ testParameters.forEach(({ accountType }) => {
     openNewAccountPage,
     accountsOverviewPage,
   }) => {
+    await allure.severity('critical');
     await signUpAccount(page, account);
     await accountNavigationMenu.clickOpenNewAccount();
     await openNewAccountPage.assertOpenNewAccountPageOpened();

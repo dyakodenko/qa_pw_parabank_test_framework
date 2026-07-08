@@ -1,5 +1,6 @@
 import { test } from '../../../_fixtures/fixtures';
 import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
+import * as allure from 'allure-js-commons';
 
 test.beforeEach(async ({ page, account }) => {
   await signUpAccount(page, account);
@@ -10,6 +11,7 @@ test('User is able to see account details', async ({
   accountNavigationMenu,
   accountActivityPage,
 }) => {
+  await allure.severity('critical');
   await accountNavigationMenu.openAccountsOverviewPage();
   const accountId = await accountsOverviewPage.getDefaultAccountId();
   const accountBalance =

@@ -1,6 +1,8 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
 import { generateNewAccountData } from '../../../src/common/testData/generateNewAccountData';
+import * as allure from 'allure-js-commons';
+
 let defaultUser;
 test.beforeEach(async ({ page, account }) => {
   await signUpAccount(page, account);
@@ -12,6 +14,7 @@ test('User is able to update Contact Information', async ({
   page,
   account,
 }) => {
+  await allure.severity('normal');
   await accountNavigationMenu.openUpdateContactInfoPage();
   await updateContactInfoPage.assertFirstNameValue(account.firstname);
   const updateContactInfoData = generateNewAccountData();

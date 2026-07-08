@@ -1,5 +1,7 @@
 import { test } from '../../../_fixtures/fixtures';
 import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
+import * as allure from 'allure-js-commons';
+
 import {
   EMPTY_CREDS_MESSAGE,
   INCORRECT_CREDS_MESSAGE,
@@ -16,6 +18,7 @@ test.beforeEach(async ({ page, account, accountNavigationMenu }) => {
 test('User is not able to sign in with empty username', async ({
   homePage,
 }) => {
+  await allure.severity('normal');
   await homePage.fillUsername('');
   await homePage.fillPassword(accountPassword);
   await homePage.clickLoginButton();

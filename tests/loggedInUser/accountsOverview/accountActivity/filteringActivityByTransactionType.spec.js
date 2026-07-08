@@ -1,7 +1,7 @@
 import { test } from '../../../_fixtures/fixtures';
 import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
 import { openAddtionalAccount } from '../../../../src/ui/actions/openAdditionalAccount';
-import { getTodayDateString } from '../../../../src/common/helpers/dateHelpers';
+import * as allure from 'allure-js-commons';
 
 let defaultAccount;
 let additionalAccount;
@@ -43,6 +43,7 @@ test.beforeEach(
 test('User is able to filter activities by transaction type Debit', async ({
   accountActivityPage,
 }) => {
+  await allure.severity('minor');
   await accountActivityPage.selectTypeToFilter('Debit');
   await accountActivityPage.clickGoButton();
   await accountActivityPage.assertCountOfTransactions(1);
@@ -55,6 +56,7 @@ test('User is able to filter activities by transaction type Debit', async ({
 test('User is able to filter activities by transaction type Credit', async ({
   accountActivityPage,
 }) => {
+  await allure.severity('minor');
   await accountActivityPage.selectTypeToFilter('Credit');
   await accountActivityPage.clickGoButton();
   await accountActivityPage.assertCountOfTransactions(1);
@@ -67,6 +69,7 @@ test('User is able to filter activities by transaction type Credit', async ({
 test('User is able to filter activities by transaction type All', async ({
   accountActivityPage,
 }) => {
+  await allure.severity('minor');
   await accountActivityPage.selectTypeToFilter('Credit');
   await accountActivityPage.clickGoButton();
   await accountActivityPage.assertCountOfTransactions(1);

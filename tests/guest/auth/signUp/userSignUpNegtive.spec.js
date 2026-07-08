@@ -1,4 +1,6 @@
 import { test } from '../../../_fixtures/fixtures';
+import * as allure from 'allure-js-commons';
+
 import {
   EMPTY_LASTNAME_MESSAGE,
   EMPTY_ADDRESS_MESSAGE,
@@ -62,6 +64,8 @@ const testParameters = [
 testParameters.forEach(({ message, title, fieldToEmpty }) => {
   test.describe('Sign up negative tests', () => {
     test(`Sign up with ${title}`, async ({ signUpPage, account, homePage }) => {
+      await allure.severity('normal');
+
       const payload = {
         firstname: account.firstname,
         lastname: fieldToEmpty === 'lastname' ? '' : account.lastname,

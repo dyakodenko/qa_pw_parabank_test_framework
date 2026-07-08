@@ -2,6 +2,7 @@ import { test } from '../../../_fixtures/fixtures';
 import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
 import { openAddtionalAccount } from '../../../../src/ui/actions/openAdditionalAccount';
 import { getCurrentMonth } from '../../../../src/common/helpers/dateHelpers';
+import * as allure from 'allure-js-commons';
 
 let defaultAccount;
 let additionalAccount;
@@ -43,6 +44,7 @@ test.beforeEach(
 test('User is able to filter activities by current month', async ({
   accountActivityPage,
 }) => {
+  await allure.severity('normal');
   const currentMonth = getCurrentMonth();
   console.log(currentMonth);
   await accountActivityPage.selectMonthToFiterByPeriod(currentMonth);
@@ -55,6 +57,7 @@ test('User is able to filter activities by current month', async ({
 test('User is able to filter activities by previous month', async ({
   accountActivityPage,
 }) => {
+  await allure.severity('normal');
   const currentMonth = getCurrentMonth(-1);
   console.log(currentMonth);
   await accountActivityPage.selectMonthToFiterByPeriod(currentMonth);

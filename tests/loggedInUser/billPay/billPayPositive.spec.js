@@ -1,6 +1,7 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
 import { generateBillPayData } from '../../../src/common/testData/generateBillPayData';
+import * as allure from 'allure-js-commons';
 
 test.beforeEach(async ({ page, account }) => {
   await signUpAccount(page, account);
@@ -12,6 +13,7 @@ test('User is able to make a bill payment', async ({
   accountsOverviewPage,
   accountActivityPage,
 }) => {
+  await allure.severity('critical');
   await accountNavigationMenu.openBillPayPage();
   const billPayData = generateBillPayData();
   await billPayPage.fillPayeeName(billPayData.payeeName);

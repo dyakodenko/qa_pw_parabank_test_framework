@@ -1,7 +1,6 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
-import { generateNewAccountData } from '../../../src/common/testData/generateNewAccountData';
-import { request } from 'playwright-core';
+import * as allure from 'allure-js-commons';
 
 const loanAmmount = 100;
 const downPayment = 10;
@@ -14,9 +13,8 @@ test('User is able to request a loan', async ({
   accountNavigationMenu,
   accountsOverviewPage,
   requestLoanPage,
-  page,
-  account,
 }) => {
+  await allure.severity('trivial');
   await accountNavigationMenu.openAccountsOverviewPage();
   const defaultAccountId = await accountsOverviewPage.getDefaultAccountId();
   const defaultAccountBalance =

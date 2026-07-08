@@ -2,6 +2,7 @@ import { test } from '../../_fixtures/fixtures';
 import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
 import { openAddtionalAccount } from '../../../src/ui/actions/openAdditionalAccount';
 import { getTodayDateString } from '../../../src/common/helpers/dateHelpers';
+import * as allure from 'allure-js-commons';
 
 let defaultAccount;
 let additionalAccount;
@@ -52,6 +53,7 @@ test('User is able to find transactions by Id', async ({
   findTransactionPage,
   page,
 }) => {
+  await allure.severity('normal');
   await accountNavigationMenu.openFindTransactionsPage();
   await findTransactionPage.selectAccountId(additionalAccount);
   await findTransactionPage.fillTransactionIdField(transactionId);
@@ -66,6 +68,7 @@ test('User is able to find transactions by date', async ({
   accountNavigationMenu,
   findTransactionPage,
 }) => {
+  await allure.severity('normal');
   await accountNavigationMenu.openFindTransactionsPage();
   await findTransactionPage.selectAccountId(additionalAccount);
   await findTransactionPage.fillTransactionDateField(dateOfTransaction);
@@ -80,6 +83,7 @@ test('User is able to find transactions by date range', async ({
   accountNavigationMenu,
   findTransactionPage,
 }) => {
+  await allure.severity('normal');
   await accountNavigationMenu.openFindTransactionsPage();
   await findTransactionPage.selectAccountId(additionalAccount);
   await findTransactionPage.fillTransactionDateFromField(previousDay);
@@ -95,6 +99,7 @@ test('User is able to find transactions by amount', async ({
   accountNavigationMenu,
   findTransactionPage,
 }) => {
+  await allure.severity('normal');
   await accountNavigationMenu.openFindTransactionsPage();
   await findTransactionPage.selectAccountId(additionalAccount);
   await findTransactionPage.fillTransactionAmountField(moneyToSend);

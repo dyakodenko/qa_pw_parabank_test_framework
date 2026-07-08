@@ -1,5 +1,6 @@
 import { test } from '../../../_fixtures/fixtures';
 import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
+import * as allure from 'allure-js-commons';
 let accountUsername, accountPassword;
 
 test.beforeEach(async ({ page, account, accountNavigationMenu }) => {
@@ -15,6 +16,8 @@ test('User is able to sign in', async ({
   account,
   accountNavigationMenu,
 }) => {
+  await allure.severity('critical');
+
   await homePage.fillUsername(accountUsername);
   await homePage.fillPassword(accountPassword);
   await homePage.clickLoginButton();

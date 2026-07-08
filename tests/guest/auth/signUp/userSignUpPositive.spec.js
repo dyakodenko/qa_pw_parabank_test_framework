@@ -1,10 +1,12 @@
 import { test } from '../../../_fixtures/fixtures';
+import * as allure from 'allure-js-commons';
 
 test('Successfull sign up flow test', async ({
   account,
   homePage,
   signUpPage,
 }) => {
+  await allure.severity('critical');
   await homePage.open();
   await homePage.clickRegisterLink();
   await signUpPage.assertSignUpPageIsOpen();
